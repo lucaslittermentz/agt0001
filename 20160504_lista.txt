@@ -1,0 +1,108 @@
+algoritmo "20160504_lista_1"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 04/05/2016
+// Seção de Declarações 
+var
+   a : vetor[1..20] de inteiro
+   i : inteiro
+inicio
+// Seção de Comandos 
+   escreval("Invertedor de vetor com valores aleatórios")
+   para i de 1 ate 20 faca
+      a[i] <- randi(10)
+   fimpara
+   escreval()
+   escreval("Vetor A: ")
+   para i de 1 ate 20 faca
+      escreva(a[i]:1," ")
+   fimpara
+   escreval()
+   escreval("Vetor A invertido: ")
+   para i de 20 ate 1 passo -1 faca
+      escreva(a[i]:1," ")
+   fimpara
+fimalgoritmo
+
+
+algoritmo "20160504_lista_2"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 04/05/2016
+// Seção de Declarações 
+var
+   a : vetor[1..30] de inteiro
+   i, par, impar : inteiro
+inicio
+// Seção de Comandos 
+   par <- 0
+   impar <- 0
+   escreval("Forneça 30 valores inteiros")
+   para i de 1 ate 30 faca
+      leia(a[i])
+   fimpara
+   para i de 1 ate 30 faca
+      se (a[i] mod 2 = 0) entao
+         par <- par + 1
+      senao
+         impar <- impar + 1
+      fimse
+   fimpara
+   escreval("Pares:   ",par:1)
+   escreval("Ímpares: ",impar:1)
+fimalgoritmo
+
+
+algoritmo "20160504_lista_3"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 04/05/2016
+// Seção de Declarações 
+var
+   a, b : vetor[1..10] de real
+   i : inteiro
+inicio
+// Seção de Comandos 
+   escreval("Forneça 10 valores")
+   para i de 1 ate 10 faca
+      leia(a[i])
+      b[i] <- a[i]/2
+   fimpara
+   para i de 1 ate 10 faca
+      escreval("A: ",a[i]:9:1,"   B: ",b[i]:9:1)
+   fimpara
+fimalgoritmo
+
+
+algoritmo "20160504_lista_4"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 04/05/2016
+// Seção de Declarações 
+var
+   a : vetor[1..10] de real
+   i : inteiro
+   min, med, max : real
+inicio
+// Seção de Comandos 
+   escreval("Forneça as temperaturas em Celsius")
+   para i de 1 ate 10 faca
+      leia(a[i])
+   fimpara
+   med <- 0
+   min <- a[1] // Inicializando com valores
+   max <- a[1] // não absurdos
+   para i de 1 ate 10 faca
+      se (a[i]<min) entao
+         min <- a[i]
+      fimse
+      se (a[i]>max) entao
+         max <- a[i]
+      fimse
+      med <- med + a[i]
+   fimpara
+   med <- med/10
+   escreval("Mínimo: ",min:7:2,"C")
+   escreval("Média : ",med:7:2,"C")
+   escreval("Máximo: ",max:7:2,"C")
+fimalgoritmo
