@@ -1,18 +1,19 @@
-algoritmo "20160502_1"
-// Função : Introdução a vetores
+algoritmo "20160502_1_vetores"
+// Função : Leitura de 5 numeros; soma dos impares; apresentacao da soma
 // Autor :
 // Data : 28/04/2016
 // Seção de Declarações 
 var
-   vet : vetor[1..3] de caracter
-   i : inteiro
+   a : vetor[1..5] de inteiro
+   i, s : inteiro
 inicio
-   para i de 1 ate 3 faca
-      escreval("Digite o nome")
-      leia(vet[i])
+   s <- 0
+   para i de 1 ate 5 faca
+      escreval("Digite o valor")
+      leia(a[i])
+      se (a[i] mod 2 <> 0) entao
+         s <- s+a[i]
+      fimse
    fimpara
-   para i de 1 ate 3 faca
-      escreval("Nome inserido: ", vet[i])
-   fimpara
-// Seção de Comandos 
+   escreval(s)
 fimalgoritmo
