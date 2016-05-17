@@ -1,0 +1,239 @@
+algoritmo "20160520_lista_12"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 17/05/2016
+// Seção de Declarações
+var
+vet:vetor[1..12] de inteiro
+i,j,x:inteiro
+inicio
+escreval("Digite 12 números inteiros")
+para i de 1 ate 12 faca
+   leia(vet[i])
+fimpara
+para i de 1 ate 11 faca
+   para j de i+1 ate 12 faca
+      se (vet[i]<vet[j]) entao
+         x <- vet[i]
+         vet[i] <- vet[j]
+         vet[j] <- x
+      fimse
+   fimpara
+fimpara
+escreval()
+escreval("Ordenado (decrescente):")
+para i de 1 ate 12 faca
+   escreva(vet[i])
+fimpara
+fimalgoritmo
+
+
+algoritmo "20160520_lista_13"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 17/05/2016
+// Seção de Declarações
+var
+a,b:vetor[1..8] de inteiro
+x,i,j,p,max,min,med,passos:inteiro
+ok:logico
+inicio
+escreval("Digite 8 números inteiros")
+para i de 1 ate 8 faca
+   leia(a[i])
+fimpara
+para i de 1 ate 8 faca
+   b[i] <- a[i]*5
+fimpara
+para i de 1 ate 7 faca                // Não foi especificado no problema
+   para j de i+1 ate 8 faca           // mas é necessário ordenar o vetor
+      se (b[i]>b[j]) entao            // para que seja aplicável realizar
+         x <- b[i]                    // a pesquisa binária.
+         b[i] <- b[j]
+         b[j] <- x
+      fimse
+   fimpara
+fimpara
+escreva("Vetor A:")
+para i de 1 ate 8 faca
+escreva(a[i])
+fimpara
+escreval()
+escreva("Vetor b:")
+para i de 1 ate 8 faca
+escreva(b[i])
+fimpara
+escreval()
+ok <- FALSO
+min <- 1
+max <- 8
+passos <- 0
+escreva("Que número quer pesquisar no vetor B? ")
+leia(p)
+escreva("Pesquisando")
+enquanto (min <= max) e (nao ok) faca
+   med <- (max+min) div 2
+   passos <- passos + 1
+   escreva(".")
+   Se (b[med] = p) entao
+      ok <- VERDADEIRO
+   Senao
+      Se (p < b[med]) entao
+         max <- med - 1
+      senao
+         min <- med + 1
+      fimse
+   fimse
+fimenquanto
+escreval()
+se (ok) entao
+   escreval(p:1," encontrado após ", passos:1," passo(s) com pesquisa binária.")
+senao
+   escreval(p:1," não encontrado.")
+fimse
+fimalgoritmo
+
+
+
+
+algoritmo "20160520_lista_14"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 17/05/2016
+// Seção de Declarações
+var
+a:vetor[1..20] de inteiro
+b:vetor[1..30] de inteiro
+c:vetor[1..50] de inteiro
+i,j,x:inteiro
+inicio
+escreval("Forneça 50 números inteiros")
+//para i de 1 ate 20 faca           // Alimentação aleatória dos vetores.
+//   a[i]<- randi(50)               //
+//fimpara                           //
+//para i de 1 ate 30 faca           // Se preferir usar este, descomente
+//   b[i] <- randi(50)              // este bloco de cógigo e comente
+//fimpara                           // o bloco abaixo.
+
+
+para i de 1 ate 20 faca    // Alimentação do vetor A
+   leia(a[i])
+fimpara
+para i de 1 ate 30 faca    // Alimentação do vetor B
+   leia(b[i])
+fimpara
+
+
+para i de 1 ate 20 faca    // Transportar valores para vetor C (1/2)
+   c[i] <- a[i]
+fimpara
+para i de 1 ate 30 faca    // Transportar valores para vetor C (2/2)
+   c[i+20] <- b[i]
+fimpara
+para i de 1 ate 49 faca    // Ordenar os valores em ordem crescente
+   para j de i+1 ate 50 faca
+      se (c[i]>c[j]) entao
+         x <- c[i]
+         c[i] <- c[j]
+         c[j] <- x
+      fimse
+   fimpara
+fimpara
+escreval("Vetor ordenado (crescente):")
+para i de 1 ate 26 faca    // Escrever valores do vetor (1/2)
+   escreva(c[i])
+fimpara
+escreval()
+para i de 27 ate 50 faca   // Escrever valores do vetor (2/2)
+   escreva(c[i])
+fimpara
+fimalgoritmo
+
+
+
+
+algoritmo "20160520_lista_15"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 17/05/2016
+// Seção de Declarações
+var
+a,b,c:vetor[1..15] de inteiro
+d:vetor[1..45] de inteiro
+i,j,x,max,min,med,passos,p:inteiro
+ok:logico
+inicio
+escreval("Forneça 50 números inteiros")
+para i de 1 ate 15 faca           // Alimentação aleatória dos vetores.
+   a[i] <- randi(1000)            // Se preferir usar este, descomente
+   b[i] <- randi(1000)            // este bloco de cógigo e comente
+   c[i] <- randi(1000)            // o bloco abaixo.
+fimpara                           //
+
+
+//para i de 1 ate 15 faca    // Alimentação do vetor A
+//   leia(a[i])
+//fimpara
+//para i de 1 ate 15 faca    // Alimentação do vetor B
+//   leia(b[i])
+//fimpara
+//para i de 1 ate 15 faca    // Alimentação do vetor B
+//   leia(c[i])
+//fimpara
+
+
+para i de 1 ate 15 faca    // Transportar valores para vetor C
+   d[i] <- a[i]
+   d[i+15] <- b[i]
+   d[i+30] <- c[i]
+fimpara
+para i de 1 ate 44 faca    // Ordenar os valores em ordem crescente
+   para j de i+1 ate 45 faca
+      se (d[i]>d[j]) entao
+         x <- d[i]
+         d[i] <- d[j]
+         d[j] <- x
+      fimse
+   fimpara
+fimpara
+escreval("Vetor ordenado (crescente):")
+para i de 1 ate 15 faca    // Escrever valores do vetor (1/3)
+   escreva(d[i])
+fimpara
+escreval()
+para i de 16 ate 30 faca    // Escrever valores do vetor (2/3)
+   escreva(d[i])
+fimpara
+escreval()
+para i de 31 ate 45 faca    // Escrever valores do vetor (3/3)
+   escreva(d[i])
+fimpara
+escreval()
+ok <- FALSO
+min <- 1
+max <- 45
+passos <- 0
+escreva("Que número quer pesquisar no vetor D? ")
+leia(p)
+escreva("Pesquisando")
+enquanto (min <= max) e (nao ok) faca
+   med <- (max+min) div 2
+   passos <- passos + 1
+   escreva(".")
+   Se (d[med] = p) entao
+      ok <- VERDADEIRO
+   Senao
+      Se (p < d[med]) entao
+         max <- med - 1
+      senao
+         min <- med + 1
+      fimse
+   fimse
+fimenquanto
+escreval()
+se (ok) entao
+   escreval(p:1," encontrado após ", passos:1," passo(s) com pesquisa binária.")
+senao
+   escreval(p:1," não encontrado.")
+fimse
+fimalgoritmo
