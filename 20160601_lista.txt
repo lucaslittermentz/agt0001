@@ -1,0 +1,36 @@
+algoritmo "20160601_matrizPesq"
+// Função :
+// Autor : Lucas Litter Mentz
+// Data : 01/06/2016
+// Seção de Declarações
+var
+mat : vetor[1..7,1..7] de inteiro
+i, j, pesq : inteiro
+encontrado : logico
+inicio
+// Seção de Comandos
+escreval("Matriz 7x7:")
+para i de 1 ate 7 faca
+   para j de 1 ate 7 faca
+      mat[i,j] <- randi(30)
+      escreva(mat[i,j]:3)
+   fimpara
+   escreval()
+fimpara
+escreval()
+escreval("Que numero quer pesquisar na matriz?")
+leia(pesq)
+escreval()
+encontrado <- falso
+para i de 1 ate 7 faca
+   para j de 1 ate 7 faca
+      se (mat[i,j] = pesq) entao
+         escreval("Encontrado na linha ",i:1," e coluna ",j:1)
+         encontrado <- verdadeiro
+      fimse
+   fimpara
+fimpara
+se nao encontrado entao
+   escreval("Numero pesquisado nao existe na matriz.")
+fimse
+fimalgoritmo
